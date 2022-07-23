@@ -29,14 +29,20 @@ void AMainCharacters::Tick(float DeltaTime)
 void AMainCharacters::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+	PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &AMainCharacters::MoveForward);
+	PlayerInputComponent->BindAxis(TEXT("MoveRight"), this, &AMainCharacters::MoveRight);
+	PlayerInputComponent->BindAxis(TEXT("Turn"), this, &AMainCharacters::AddControllerYawInput);
+	PlayerInputComponent->BindAxis(TEXT("LookUp"), this, &AMainCharacters::AddControllerPitchInput);
 
 }
 
 void AMainCharacters::MoveForward(float AxisVal)
 {
+	AddMovementInput(GetActorForwardVector() * AxisVal);
 }
 
 void AMainCharacters::MoveRight(float AxisVal)
 {
+	AddMovementInput(GetActorRightVector() * AxisVal);
 }
 
