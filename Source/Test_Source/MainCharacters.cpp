@@ -32,3 +32,11 @@ void AMainCharacters::SetupPlayerInputComponent(UInputComponent* PlayerInputComp
 
 }
 
+void AMainCharacters::MoveForward(float AxisVal)
+{
+}
+
+void AMainCharacters::MoveRight(float AxisVal)
+{
+}
+
